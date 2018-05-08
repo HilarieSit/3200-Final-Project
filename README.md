@@ -5,6 +5,7 @@ Run leastsquaresfit.m first to fit the spring and damping force data, then run r
 
 Hi
 Hi by Jonathan
+Hi
 
 # 3200-Final_Project2
 # Final_Project_3200
