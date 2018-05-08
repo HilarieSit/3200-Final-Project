@@ -32,10 +32,8 @@ np = 1; tp(np) = tt; yp(np,:) = y(1,:);
 i = 1;
 while(1)
   tend = t(np + 1);
-  hh = t(np + 1) ? t(np);  
+  hh = t(np + 1) - t(np);  
   if hh > h,hh = h;end
-  
-  % add snippet to include/not include bumpy road
   
   while(1)
     if tt+hh > tend,hh = tend-tt;end
