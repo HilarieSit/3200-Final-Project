@@ -18,3 +18,6 @@ d_m = 2;
 [fd,ad] = polylsq(x,Fd,d_n,d_m);
 disp(fd)
 disp(ad)
+
+% make system of ODE equations
+
