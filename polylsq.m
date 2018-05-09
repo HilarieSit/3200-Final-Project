@@ -1,5 +1,4 @@
 % Performs a polynomial least squares fit given 
-% Git test by Jonathan
 function [f,a] = polylsq(x,y,n,m)
     % construct X matrix
     X = zeros(n,m+1);
