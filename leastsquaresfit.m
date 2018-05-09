@@ -1,3 +1,4 @@
+% Git test by Jonathan
 SF = load('springforce.mat');
 DF = load('dampingforce.mat');
 
