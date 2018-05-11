@@ -54,5 +54,3 @@ title('Plot of damping force data and its least squares fit')
 xlabel('x_dot', 'Interpreter', 'none')
 ylabel('F_{d}')
 hold off
-
-% make system of ODE equations
