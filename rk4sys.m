@@ -6,7 +6,7 @@ function [tp,yp] = rk4sys(dydt,tspan,y0,h,varargin)
 %   dydt = name of the M-file that evaluates the ODEs 
 %   tspan = [ti, tf]; initial and final times with output
 %                      generated at interval of h, or
-%   = [t0 t1 ? tf]; specific times where solution output
+%   = [t0 t1 ... tf]; specific times where solution output
 %   y0 = initial values of dependent variables
 %   h = step size
 %   p1,p2,? = additional parameters used by dydt
@@ -15,10 +15,10 @@ function [tp,yp] = rk4sys(dydt,tspan,y0,h,varargin)
 %   yp = vector of solution for dependent variables
 
 if nargin < 4,error('at least 4 input arguments required'), end
-if any(diff(tspan)< = 0),error('tspan not ascending order'), end
+if any(diff(tspan)<= 0),error('tspan not ascending order'), end
 n = length(tspan);
 ti = tspan(1);tf = tspan(n);
-if n = = 2
+if n == 2
   t = (ti:h:tf)'; n = length(t);
   if t(n)<tf  
     t(n + 1) = tf;
@@ -48,8 +48,8 @@ while(1)
     y(i + 1,:) = y(i,:) + phi*hh;
     tt = tt + hh;
     i = i + 1;
-    if tt > = tend,break,end
+    if tt >= tend,break,end
   end
   np = np + 1; tp(np) = tt; yp(np,:) = y(i,:);
-  if tt > = tf,break,end
+  if tt >= tf,break,end
 end
