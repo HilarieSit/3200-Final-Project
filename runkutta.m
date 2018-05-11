@@ -1,4 +1,4 @@
-function runkutta
+%runkutta
 clear all
 clc
 
@@ -9,8 +9,6 @@ h = T/50;
 w = pi/T;
 
 % [t, y] = rk4sys(@dydtsys,[0 10],[0 0],2);
-[t y] = rk4sys(@dydtsys,[0 4],[0 0 0 0],h);
+[t, y] = rk4sys(@dydtsys,[0 4],[0 0 0 0],h);
 
 plot(y,t)
-
-end
