@@ -1,4 +1,4 @@
-function dy = dydtsys(t, y)
+function dy = dydtsys10(t, y)
 % dydtsys sets up a column vector, dy, of ODEs to solve
 % t = time (scalar)
 % y is a row vector
@@ -33,8 +33,7 @@ Fd = c1*delta_xdot + c2*delta_xdot^2;
 % road profile characteristics
 A = 0.1;    % amplitude
 L = 5.2;    % length
-% V = 10;     % velocity = 10 km/hr
-V = 40;     % velocity = 40 km/hr
+V = 10;     % velocity = 10 km/hr
 T = L/(V*1000/3600);    % time needed for car to go over bump
 w = pi/T;   % natural frequency
 q = A*sin(w*t);     % road profile displacement
