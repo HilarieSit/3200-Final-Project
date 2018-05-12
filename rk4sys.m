@@ -1,3 +1,4 @@
+% 4th order Runge-Kutta code
 % Source of rk4sys code: figure 22.8 of the Chapra textbook
 
 function [tp,yp] = rk4sys(dydt,tspan,y0,h,varargin)
