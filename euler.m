@@ -1,4 +1,4 @@
-% euler: fyi: need to change time step by 1/10 to get visually similar results as RK4
+% euler: fyi: need to change time step by 1/10 (h = T40/50/10) to get visually similar results as RK4
 % can run by changing rk4sys in runkutta to euler
 function [t,y] = euler(dydt,tspan,y0,h)
 
