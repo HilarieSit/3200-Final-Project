@@ -35,11 +35,11 @@ xdot_u0 = 0;    % initial velocity of unsprung mass
 initial_cond = [xs0, xdot_s0, xu0, xdot_u0];    % initial conditions
 
 % simulate QCM using 4th order Runge-Kutta
-[t10_rk4, x10_rk4] = rk4sys(@dydtsys, tspan, initial_cond, h10);
-[t40_rk4, x40_rk4] = rk4sys(@dydtsys, tspan, initial_cond, h40);
+[t10_rk4, x10_rk4] = rk4sys(@dydtsys10, tspan, initial_cond, h10);
+[t40_rk4, x40_rk4] = rk4sys(@dydtsys40, tspan, initial_cond, h40);
 
 % simulate QCM using forward Euler
-[t40_euler, x40_euler] = euler(@dydtsys, tspan, initial_cond, h40/10);
+[t40_euler, x40_euler] = euler(@dydtsys40, tspan, initial_cond, h40);
 
 % plot 4th order Runge-Kutta displacement and velocities 
 % vs time for V = 10 km/hr
@@ -68,6 +68,28 @@ xlabel('displacement/velocity')
 ylabel('time')
 legend('sprung mass displacement', 'sprung mass velocity', ...
     'unsprung mass displacement', 'unsprung mass velocity')
+
+% plot comparision of sprung mass displacement for V = 10 km/hr
+% and V = 40 km/hr
+figure
+hold on
+plot(t10_rk4, x10_rk4(:, 1), 'k--')
+plot(t40_rk4, x40_rk4(:, 1), 'ko')
+title('Comparison of 4th order Runge-Kutta sprung mass displacement')
+xlabel('displacement')
+ylabel('time')
+legend('V = 10 km/hr', 'V = 40 km/hr')
+
+% plot comparision of sprung mass velocity for V = 10 km/hr
+% and V = 40 km/hr
+figure
+hold on
+plot(t10_rk4, x10_rk4(:, 2), 'k--')
+plot(t40_rk4, x40_rk4(:, 2), 'ko')
+title('Comparison of 4th order Runge-Kutta sprung mass velocity')
+xlabel('velocity')
+ylabel('time')
+legend('V = 10 km/hr', 'V = 40 km/hr')
 
 % plot forward Euler displacement and velocities 
 % vs time for V = 40 km/hr
