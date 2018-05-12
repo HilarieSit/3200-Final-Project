@@ -104,3 +104,48 @@ xlabel('displacement/velocity')
 ylabel('time')
 legend('sprung mass displacement', 'sprung mass velocity', ...
     'unsprung mass displacement', 'unsprung mass velocity')
+
+% comparison of 4th order Runge-Kutta and forward Euler 
+% solutions for sprung and unsprung mass displacements and 
+% velocities for V = 40 km/hr
+figure
+subplot(2, 2, 1)
+plot(t40_rk4, x40_rk4(:, 1), 'k-', ...
+    t40_euler, x40_euler(:, 1), 'k--')
+title('Sprung mass displacement')
+xlabel('displacement')
+ylabel('time')
+legend('rk4', 'euler')
+axis([t0 t_end -1.5 1.5])
+
+subplot(2, 2, 2)
+plot(t40_rk4, x40_rk4(:, 2), 'k-', ...
+    t40_euler, x40_euler(:, 2), 'k--')
+title('Sprung mass velocity')
+xlabel('velocity')
+ylabel('time')
+legend('rk4', 'euler')
+axis([t0 t_end -1.5 1.5])
+
+subplot(2, 2, 3)
+plot(t40_rk4, x40_rk4(:, 3), 'k-', ...
+    t40_euler, x40_euler(:, 3), 'k--')
+title('Unsprung mass displacement')
+xlabel('displacement')
+ylabel('time')
+legend('rk4', 'euler')
+axis([t0 t_end -1.5 1.5])
+
+subplot(2, 2, 4)
+plot(t40_rk4, x40_rk4(:, 4), 'k-', ...
+    t40_euler, x40_euler(:, 4), 'k--')
+title('Unprung mass velocity')
+xlabel('velocity')
+ylabel('time')
+legend('rk4', 'euler')
+axis([t0 t_end -1.5 1.5])
+
+% absolute difference between 4th order Runge-Kutta and
+% forward Euler for 4 unknown variables (displacements and
+% velocities of sprung and unsprung masses 
+time = T40*2;
