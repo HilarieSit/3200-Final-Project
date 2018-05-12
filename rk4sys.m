@@ -40,7 +40,6 @@ while(1)
   while(1)
     if tt+hh > tend,hh = tend-tt;end
     k1 = dydt(tt,y(i,:),varargin{:})'; 
-    disp(k1)
     ymid = y(i,:) + k1.*hh./2;
     k2 = dydt(tt + hh/2,ymid,varargin{:})';   
     ymid = y(i,:) + k2*hh/2;
@@ -53,7 +52,6 @@ while(1)
     i = i + 1;
     if tt >= tend,break,end
   end
-  disp(i)
   np = np + 1; tp(np) = tt; yp(np,:) = y(i,:);
   if tt >= tf,break,end
 end
