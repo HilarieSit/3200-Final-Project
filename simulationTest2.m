@@ -9,7 +9,7 @@ clc
 h = 0.01;  % timestep size
 
 t0 = 0;     % initial simulation time
-t_end = 50;  % final simulation time
+t_end = 200;  % final simulation time
 tspan = [t0 t_end]; % time period for simulation
 
 x0 = 2;

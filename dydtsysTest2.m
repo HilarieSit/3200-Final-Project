@@ -8,8 +8,8 @@ function dy = dydtsysTest2(t, y)
 m = 1;
 k = 1;
 c = 0.125;
-A = 0;
-w = 1;
+A = 0.5;
+w = 0.5;
 % F = 0;
 F = A*sin(w*t);
 
