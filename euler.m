@@ -9,9 +9,13 @@ function [t,y] = euler(dydt,tspan,y0,h)
 t0 = tspan(1);
 tend = tspan(length(tspan));
 t = t0:h:tend;
+<<<<<<< HEAD
 if t(length(t)) ~= tend
     t(length(t)+1) = tend;
 end
+=======
+t(length(t)+1) = tend;
+>>>>>>> cac5e23fec33f63a791f805759152d4771993300
 y(1,:) = y0;
 
 for i = 1:1:length(t)-1
