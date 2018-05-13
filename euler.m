@@ -11,9 +11,8 @@ t(length(t)+1) = tend;
 y(1,:) = y0;
 
 for i = 1:1:length(t)-1
-    m = dydt(t(i),y(i,:));    % slope; m is a column vector  
+    m = dydt(t(i),y(i,:));    % slope; m is a column vector 
     m = transpose(m);
     y(i+1,:) = y(i,:) + m*h;
 end 
-
 end
