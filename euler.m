@@ -12,7 +12,6 @@ t = t0:h:tend;
 if t(length(t)) ~= tend
     t(length(t)+1) = tend;
 end
-t(length(t)+1) = tend;
 y(1,:) = y0;
 
 for i = 1:1:length(t)-1
