@@ -13,5 +13,6 @@
 3. Data Analysis </br>
 * RUN THIS FILE: **finiteDifference.m**
 * RUN THIS FILE: **zerocrossing.m** - solve for zero-crossing time via bisection method on a 5th order Lagrange Interpolating Polynomial  
+* RUN THIS FILE: **numericalIntegration.m** - compute energy loss due to damping
 
 * calls the following: lagrangeIP5.m, bisection.m
