@@ -10,6 +10,12 @@
 % characteristic time scale (T), the time it takes for the car to 
 % go over the bump
 
+% for the quarter car model (QCM):
+%       x(:, 1) = displacement of sprung mass, x_s, vs time
+%       x(:, 2) = velocity of sprung mass, xdot_s, vs time
+%       x(:, 3) = displacement of unspring mass, x_u, vs time
+%       x(:, 4) = velocity of unsprung mass, xdot_u, vs time
+
 close all
 clear all
 clc

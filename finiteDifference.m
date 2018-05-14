@@ -3,6 +3,12 @@
 % use O(h^2) centered finite difference scheme to plot sprung mass
 % acceleration as a function of time
 
+% for the quarter car model (QCM):
+%       x(:, 1) = displacement of sprung mass, x_s, vs time
+%       x(:, 2) = velocity of sprung mass, xdot_s, vs time
+%       x(:, 3) = displacement of unspring mass, x_u, vs time
+%       x(:, 4) = velocity of unsprung mass, xdot_u, vs time
+
 close all
 clear all
 clc
@@ -45,7 +51,8 @@ end
 % remove the first and last entries in acceleration10
 % because those acceleration values could not be 
 % computed with the centered finite difference scheme
-aacceleration10 = acceleration10(1, 2:end-1);
+acceleration10 = acceleration10(1, 2:end-1);
+max_accel10 = max(abs(acceleration10));
 
 % compute acceleration for V = 40 km/hr
 acceleration40 = zeros(1, length(t40_rk4));
@@ -57,4 +64,19 @@ end
 % because those acceleration values could not be 
 % computed with the centered finite difference scheme
 acceleration40 = acceleration40(1, 2:end-1);
+max_accel40 = max(abs(acceleration40));
+
+% plot acceleration vs time for V = 10 km/hr
+figure
+plot(t10_rk4(1, 2:end-1), acceleration10, 'k-')
+title('Sprung mass acceleration for V = 10 km/hr using centered FD')
+xlabel('time')
+ylabel('acceleration')
+
+% plot acceleration vs time for V = 40 km/hr
+figure
+plot(t40_rk4(1, 2:end-1), acceleration40, 'k-')
+title('Sprung mass acceleration for V = 40 km/hr using centered FD')
+xlabel('time')
+ylabel('acceleration')
 
