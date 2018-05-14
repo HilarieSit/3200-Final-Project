@@ -16,7 +16,7 @@ kt = 181818.88;
 ct = 13.854;
 
 % coefficients of spring force and damping force equations
-% deteremined using least squares fit
+% determined using least squares fit
 k1 = 0.0124*10^6;
 k2 = -0.0737*10^6;
 k3 = 3.1704*10^6;
