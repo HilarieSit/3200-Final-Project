@@ -1,7 +1,8 @@
 % Section 3, part a
 
-% use O(h^2) centered finite difference scheme to plot sprung mass
-% acceleration as a function of time
+% use O(h^2) centered finite difference scheme and O(h) forward
+% finite difference scheme to plot sprung mass acceleration as a 
+% function of time
 
 % for the quarter car model (QCM):
 %       x(:, 1) = displacement of sprung mass, x_s, vs time
@@ -42,41 +43,84 @@ initial_cond = [xs0, xdot_s0, xu0, xdot_u0];    % initial conditions
 
 % -------------------------------------------------------------------
 
+% O(h^2) centered (C) finite difference scheme
+
 % compute acceleration for V = 10 km/hr
-acceleration10 = zeros(1, length(t10_rk4));
-for i = 2:length(t10_rk4)-1
-    acceleration10(1, i) = (x10_rk4(i + 1, 1) ...
+acceleration10C = zeros(1, length(t10_rk4));
+for i = 2:length(t10_rk4) - 1
+    acceleration10C(1, i) = (x10_rk4(i + 1, 1) ...
         - 2*x10_rk4(i, 1) + x10_rk4(i - 1, 1))/h10^2;
 end
-% remove the first and last entries in acceleration10
+% remove the first and last entries in acceleration10C
 % because those acceleration values could not be 
 % computed with the centered finite difference scheme
-acceleration10 = acceleration10(1, 2:end-1);
-max_accel10 = max(abs(acceleration10));
+acceleration10C = acceleration10C(1, 2:end-1);
+max_accel10C = max(abs(acceleration10C));
 
 % compute acceleration for V = 40 km/hr
-acceleration40 = zeros(1, length(t40_rk4));
-for i = 2:length(t40_rk4)-1
-    acceleration40(1, i) = (x40_rk4(i + 1, 1) ...
+acceleration40C = zeros(1, length(t40_rk4));
+for i = 2:length(t40_rk4) - 1
+    acceleration40C(1, i) = (x40_rk4(i + 1, 1) ...
         - 2*x40_rk4(i, 1) + x40_rk4(i - 1, 1))/h40^2;
 end
-% remove the first and last entries in acceleration40
+% remove the first and last entries in acceleration40C
 % because those acceleration values could not be 
 % computed with the centered finite difference scheme
-acceleration40 = acceleration40(1, 2:end-1);
-max_accel40 = max(abs(acceleration40));
+acceleration40C = acceleration40C(1, 2:end-1);
+max_accel40C = max(abs(acceleration40C));
 
 % plot acceleration vs time for V = 10 km/hr
 figure
-plot(t10_rk4(1, 2:end-1), acceleration10, 'k-')
-title('Sprung mass acceleration for V = 10 km/hr using centered FD')
+plot(t10_rk4(1, 2:end-1), acceleration10C, 'k-')
+title('Sprung mass acceleration for V = 10 km/hr using O(h^2) centered FD')
 xlabel('time')
 ylabel('acceleration')
 
 % plot acceleration vs time for V = 40 km/hr
 figure
-plot(t40_rk4(1, 2:end-1), acceleration40, 'k-')
-title('Sprung mass acceleration for V = 40 km/hr using centered FD')
+plot(t40_rk4(1, 2:end-1), acceleration40C, 'k-')
+title('Sprung mass acceleration for V = 40 km/hr using O(h^2) centered FD')
 xlabel('time')
 ylabel('acceleration')
 
+% -------------------------------------------------------------------
+
+% O(h) forward (F) finite difference scheme
+
+% compute acceleration for V = 10 km/hr
+acceleration10F = zeros(1, length(t10_rk4));
+for i = 1:length(t10_rk4) - 2
+    acceleration10F(1, i) = (x10_rk4(i + 2, 1) ...
+        - 2*x10_rk4(i + 1, 1) + x10_rk4(i, 1))/h10^2;
+end
+% remove the first and last entries in acceleration10F
+% because those acceleration values could not be 
+% computed with the centered finite difference scheme
+acceleration10F = acceleration10F(1, 1:end-2);
+max_accel10F = max(abs(acceleration10F));
+
+% compute acceleration for V = 40 km/hr
+acceleration40F = zeros(1, length(t40_rk4));
+for i = 1:length(t40_rk4) - 2
+    acceleration40F(1, i) = (x40_rk4(i + 2, 1) ...
+        - 2*x40_rk4(i + 1, 1) + x40_rk4(i, 1))/h40^2;
+end
+% remove the first and last entries in acceleration40F
+% because those acceleration values could not be 
+% computed with the centered finite difference scheme
+acceleration40F = acceleration40F(1, 1:end-2);
+max_accel40F = max(abs(acceleration40F));
+
+% plot acceleration vs time for V = 10 km/hr
+figure
+plot(t10_rk4(1, 2:end-1), acceleration10F, 'k-')
+title('Sprung mass acceleration for V = 10 km/hr using O(h) forward FD')
+xlabel('time')
+ylabel('acceleration')
+
+% plot acceleration vs time for V = 40 km/hr
+figure
+plot(t40_rk4(1, 2:end-1), acceleration40F, 'k-')
+title('Sprung mass acceleration for V = 40 km/hr using O(h) forward FD')
+xlabel('time')
+ylabel('acceleration')
