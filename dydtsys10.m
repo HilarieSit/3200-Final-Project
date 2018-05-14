@@ -6,7 +6,7 @@ function dy = dydtsys10(t, y)
 %       y(1) = displacement of sprung mass, x_s
 %       y(2) = velocity of sprung mass, xdot_s
 %       y(3) = displacement of unspring mass, x_u
-%       y(4) = velocity of unpsrung mass, xdot_u
+%       y(4) = velocity of unsprung mass, xdot_u
 
 
 % given values of mass, stiffness, and damping coefficients
