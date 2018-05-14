@@ -1,0 +1,18 @@
+% Root finding technique on constructed Langrange IP
+
+% for V = 10
+V40B = t10_rk4 < 1.8748;
+
+
+
+% for V = 40
+
+V40B = t10_rk4 < 0.552;
+ind_num = length(find(V40B));
+V40_times = [t10_rk4(ind_num-2) t10_rk4(ind_num-1) t10_rk4(ind_num)...
+    t10_rk4(ind_num+1) t10_rk4(ind_num+2) t10_rk4(ind_num+3)];
+V40_values = [x40_rk4(ind_num-2,1) x40_rk4(ind_num-1,1) x40_rk4(ind_num,1)...
+    x40_rk4(ind_num+1,1) x40_rk4(ind_num+2,1) x40_rk4(ind_num+3,1)]
+
+% 5th degree Lagrange IP
+
