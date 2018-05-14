@@ -35,7 +35,7 @@ A = 0.1;    % amplitude
 L = 5.2;    % length
 V = 10;     % velocity = 10 km/hr
 T = L/(V*1000/3600);    % time needed for car to go over bump
-w = pi/T; 
+w = pi/T;
 if t>T
     A = 0;          % eliminates sinusoidal road profile after T
 end
