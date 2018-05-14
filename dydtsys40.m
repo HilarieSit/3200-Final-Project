@@ -17,9 +17,9 @@ ct = 13.854;
 
 % coefficients of spring force and damping force equations
 % deteremined using least squares fit
-k1 = 0.0124*10^6;
-k2 = -0.0737*10^6;
-k3 = 3.1704*10^6;
+k1 = 0.0124e+06;
+k2 = -0.0737e+06;
+k3 = 3.1704e+06;
 c1 = 905.2896;
 c2 = 254.2550;
 
@@ -36,7 +36,7 @@ L = 5.2;    % length
 V = 40;     % velocity = 40 km/hr
 T = L/(V*1000/3600);    % time needed for car to go over bump
 w = pi/T;   % natural frequency
-if t>T
+if t > T
     A = 0;      % eliminates sinusoidal road profile after T
 end
 q = A*sin(w*t);     % road profile displacement

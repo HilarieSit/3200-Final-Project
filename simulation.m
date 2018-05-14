@@ -68,7 +68,7 @@ plot(t40_rk4, x40_rk4(:, 4), 'k-')
 title('4th order Runge-Kutta displacement/velocity vs time for V = 40 km/hr')
 xlabel('time')
 ylabel('displacement/velocity')
-legend('zero crossing','sprung mass displacement', 'sprung mass velocity', ...
+legend('zero crossing', 'sprung mass displacement', 'sprung mass velocity', ...
     'unsprung mass displacement', 'unsprung mass velocity')
 
 % plot comparision of sprung mass displacement for V = 10 km/hr
