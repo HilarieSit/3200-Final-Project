@@ -8,10 +8,10 @@ fr = 0;             %function evaluated at xu
 k = 0;              %number of iterations
 
 while error > threshold
-    fl = lagrangeIP5(xl,t,x);             %evaluate function at lower bound
+    fl = lagrangeIP5(xl,x,t);             %evaluate function at lower bound
     oldxr = xr;                         %store old xr 
     xr = (xl+xu)/2;                     %calculate midpoint
-    fr = lagrangeIP5(xr,t,x);               %evaluate function at xr
+    fr = lagrangeIP5(xr,x,t);               %evaluate function at xr
     
     k = k+1;
     fprintf('For iteration %d\n',k);
