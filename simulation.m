@@ -41,6 +41,8 @@ initial_cond = [xs0, xdot_s0, xu0, xdot_u0];    % initial conditions
 % simulate QCM using forward Euler
 [t40_euler, x40_euler] = euler(@dydtsys40, tspan, initial_cond, h40);
 
+%--------------------------------------------------------------------
+
 % plot 4th order Runge-Kutta displacement and velocities
 % vs time for V = 10 km/hr
 figure
@@ -141,7 +143,7 @@ axis([t0 t_end -1.5 1.5])
 subplot(2, 2, 4)
 plot(t40_rk4, x40_rk4(:, 4), 'k-', ...
     t40_euler, x40_euler(:, 4), 'k--')
-title('Unprung mass velocity')
+title('Unsprung mass velocity')
 xlabel('time')
 ylabel('velocity')
 legend('rk4', 'euler')
