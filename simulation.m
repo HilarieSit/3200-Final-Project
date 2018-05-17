@@ -36,12 +36,18 @@ initial_cond = [xs0, xdot_s0, xu0, xdot_u0];    % initial conditions
 
 % simulate QCM using 4th order Runge-Kutta
 [t10_rk4, x10_rk4] = rk4sys(@dydtsys10, tspan, initial_cond, h10);
+tic;
 [t40_rk4, x40_rk4] = rk4sys(@dydtsys40, tspan, initial_cond, h40);
+time_elapsed_rk4 = toc;
+disp(time_elapsed_rk4)
 
 he40 = h40/37;
 
 % simulate QCM using forward Euler
+tic;
 [t40_euler, x40_euler] = euler(@dydtsys40, tspan, initial_cond, he40);
+time_elapsed_euler = toc;
+disp(time_elapsed_euler)
 
 %--------------------------------------------------------------------
 
