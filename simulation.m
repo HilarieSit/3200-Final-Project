@@ -41,7 +41,7 @@ tic;
 time_elapsed_rk4 = toc;
 disp(time_elapsed_rk4)
 
-he40 = h40/37;
+he40 = h40/37;  % timestep for Euler
 
 % simulate QCM using forward Euler
 tic;
