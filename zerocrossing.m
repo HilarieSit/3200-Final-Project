@@ -8,6 +8,7 @@ V10_times = [t10_rk4(ind_num-2) t10_rk4(ind_num-1) t10_rk4(ind_num)...
     t10_rk4(ind_num+1) t10_rk4(ind_num+2) t10_rk4(ind_num+3)];
 V10_values = [x10_rk4(ind_num-2,1) x10_rk4(ind_num-1,1) x10_rk4(ind_num,1)...
     x10_rk4(ind_num+1,1) x10_rk4(ind_num+2,1) x10_rk4(ind_num+3,1)];
+disp(V10_times)
 
 % bisection
 xl = t10_rk4(ind_num);
