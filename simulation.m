@@ -38,8 +38,10 @@ initial_cond = [xs0, xdot_s0, xu0, xdot_u0];    % initial conditions
 [t10_rk4, x10_rk4] = rk4sys(@dydtsys10, tspan, initial_cond, h10);
 [t40_rk4, x40_rk4] = rk4sys(@dydtsys40, tspan, initial_cond, h40);
 
+he40 = h40/37;
+
 % simulate QCM using forward Euler
-[t40_euler, x40_euler] = euler(@dydtsys40, tspan, initial_cond, h40/1000);
+[t40_euler, x40_euler] = euler(@dydtsys40, tspan, initial_cond, he40);
 
 %--------------------------------------------------------------------
 
@@ -154,5 +156,5 @@ axis([t0 t_end -1.5 1.5])
 % velocities of sprung and unsprung masses
 time = 2*T40;
 index_rk4 = (time - t0)/h40 + 1;
-index_euler = (time - t0)/(h40/1000) + 1;
+index_euler = (time - t0)/(he40) + 1;
 diff = abs(x40_rk4(index_rk4, :) - x40_euler(index_euler, :))
